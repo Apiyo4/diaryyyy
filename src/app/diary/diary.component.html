@@ -1,0 +1,14 @@
+<div class='mb'>
+    <button class="btn btn-success" (click)= showForm()>Add an entry</button>
+</div>
+<div class='mb'>
+    <app-diaryform *ngIf='isForm' (diaryEntry)='addNewEntry($event)'></app-diaryform>
+</div>
+
+<div *ngFor='let diaryEntry of diaryEntries; let i = index' class='mb'>
+    <h4>{{diaryEntry.date | date}}</h4>
+    <h5>{{diaryEntry.title}}</h5>
+    <p>{{diaryEntry.entry}}</p>
+    <p (click)='deleteEntry(i)' class='text-danger'><span class="border border-danger">Delete Entry</span></p>
+    
+</div>
